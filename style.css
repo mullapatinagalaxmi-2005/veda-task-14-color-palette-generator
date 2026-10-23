@@ -1,0 +1,257 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #6c4cf1;
+    --primary-dark: #5235cf;
+    --text: #22213a;
+    --muted: #77768b;
+    --background: #f6f5fc;
+    --white: #ffffff;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 8%;
+    background: var(--white);
+    box-shadow: 0 2px 12px rgba(30, 20, 70, 0.06);
+}
+
+.logo {
+    color: var(--text);
+    font-size: 25px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.tagline {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.container {
+    width: min(1100px, 90%);
+    margin: 55px auto;
+    flex: 1;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+.eyebrow {
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.intro h1 {
+    font-size: clamp(28px, 5vw, 42px);
+    margin-bottom: 14px;
+}
+
+.intro > p:last-child {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.palette-section,
+.info {
+    background: var(--white);
+    padding: 28px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(35, 25, 80, 0.07);
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.section-heading h2,
+.info h2 {
+    font-size: 21px;
+}
+
+#color-count {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.palette {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.color-card {
+    border: 2px solid transparent;
+    border-radius: 13px;
+    overflow: hidden;
+    background: var(--white);
+    cursor: pointer;
+    text-align: left;
+    color: var(--text);
+    transition: transform 0.2s, border-color 0.2s;
+    min-width: 0;
+}
+
+.color-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.color-card:focus-visible,
+.generate-btn:focus-visible {
+    outline: 3px solid #b5a8ff;
+    outline-offset: 4px;
+}
+
+.swatch {
+    display: block;
+    height: 150px;
+    width: 100%;
+}
+
+.color-details {
+    display: block;
+    padding: 13px 8px;
+    text-align: center;
+}
+
+.hex-code {
+    display: block;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.copy-label {
+    display: block;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 6px;
+}
+
+.hint {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    margin: 22px 0;
+}
+
+.generate-btn {
+    display: block;
+    margin: 0 auto;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary);
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.generate-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.generate-btn span {
+    font-size: 20px;
+    margin-right: 7px;
+}
+
+.message {
+    min-height: 22px;
+    text-align: center;
+    margin-top: 15px;
+    color: #27864b;
+    font-size: 14px;
+}
+
+.info {
+    margin-top: 25px;
+}
+
+.info ol {
+    margin: 16px 0 0 22px;
+    color: var(--muted);
+    line-height: 2;
+}
+
+footer {
+    padding: 22px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+@media (max-width: 760px) {
+    .container {
+        margin: 35px auto;
+    }
+
+    .palette {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .swatch {
+        height: 125px;
+    }
+
+    .color-card:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .header {
+        padding: 18px 5%;
+    }
+
+    .tagline {
+        font-size: 11px;
+        text-align: right;
+    }
+}
+
+@media (max-width: 400px) {
+    .palette-section,
+    .info {
+        padding: 18px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .tagline {
+        max-width: 110px;
+    }
+}
